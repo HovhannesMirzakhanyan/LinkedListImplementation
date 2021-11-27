@@ -35,6 +35,16 @@ namespace LinkedListImplementation
             }
             return temp;
         }
+        internal void InsertAfter(Node<T> prev_node, T new_data)
+        {
+            if (prev_node == null)
+            {
+                throw new NullReferenceException();
+            }
+            Node<T> new_node = new Node<T>(new_data);
+            new_node.next = prev_node.next;
+            prev_node.next = new_node;
+        }
     }
 
     
