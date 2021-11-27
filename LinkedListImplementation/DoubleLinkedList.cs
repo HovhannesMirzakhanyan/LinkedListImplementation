@@ -42,6 +42,21 @@ namespace LinkedListImplementation
             }
             return temp;
         }
+        internal void InsertAfter(DNode<T> prev_node, T data)
+        {
+            if (prev_node == null)
+            {
+                throw new NullReferenceException();
+            }
+            DNode<T> newNode = new DNode<T>(data);
+            newNode.next = prev_node.next;
+            prev_node.next = newNode;
+            newNode.prev = prev_node;
+            if (newNode.next != null)
+            {
+                newNode.next.prev = newNode;
+            }
+        }
     }
     internal class DNode<T>
     {
